@@ -1,0 +1,8 @@
+{
+  "Application": "Idasen Desk REST Controller",
+  "Description": "This application exposes simple Idasen desk controlls over REST API",
+  "Commands": {
+    "/up": "Moves desk one step up",
+    "/down": "Moves desk one step down"
+  }
+}
