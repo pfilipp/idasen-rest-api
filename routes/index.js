@@ -13,50 +13,51 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/scan', async (req, res, next) => {
-  const discoveredPeripherals = await deskManager.scan();
+  const discoveredPeripherals = await deskManager.scanAsync();
   res.json(discoveredPeripherals);
 });
 
 router.post('/connect', async (req, res, next) =>{
-  const result = await deskManager.connect(req.body.address);
+  const result = await deskManager.connectAsync(req.body.address);
   res.json(result);
 });
 
 router.post('/disconnect', async (req, res, next) =>{
-  const result = await deskManager.disconnect();
+  const result = await deskManager.disconnectAsync();
   res.json(result);
 });
 
 router.post('/up', async (req, res, next) =>{
-  await deskManager.desk.moveUp();
+  await deskManager.desk.moveUpAsync();
 });
 
 router.post('/down', async (req, res, next) => {
-  await deskManager.desk.moveDown();
+  await deskManager.desk.moveDownAsync();
 });
 
 router.post('/to', async (req, res, next) => {
-  await deskManager.desk.moveTo(req.body.height);
+  console.log(req.body.height);
+  await deskManager.desk.moveToAsync(req.body.height);
   res.send();
 });
 
 router.post('/sit', async (req, res, next) => {
-  await deskManager.desk.moveTo(SIT);
+  await deskManager.desk.moveToAsync(SIT);
   res.send();
 });
 
 router.post('/stand', async (req, res, next) => {
-  await deskManager.desk.moveTo(STAND);
+  await deskManager.desk.moveToAsync(STAND);
   res.send();
 });
 
 router.get('/height', async (req, res, next) => {
-  const height = await deskManager.desk.getCurrentHeight();
+  const height = await deskManager.desk.getCurrentHeightAsync();
   res.json({height});
 });
 
 router.get('/state', async (req, res, next) => {
-  const height = await deskManager.desk.getCurrentHeight();
+  const height = await deskManager.desk.getCurrentHeightAsync();
   if (height === SIT){
     res.json({sit: true});
     return;
@@ -69,7 +70,7 @@ router.get('/state', async (req, res, next) => {
 });
 
 router.get('/isstanding', async (req, res, next) => {
-  const height = await deskManager.desk.getCurrentHeight();
+  const height = await deskManager.desk.getCurrentHeightAsync();
   if (height === STAND){
     res.send(true);
     return;
@@ -79,7 +80,7 @@ router.get('/isstanding', async (req, res, next) => {
 
 router.post('/stop', async (req, res, next) => {
   console.log('in stop');
-  await deskManager.desk.stop();
+  await deskManager.desk.stopAsync();
   res.send();
 });
 

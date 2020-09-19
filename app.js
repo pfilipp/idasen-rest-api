@@ -5,7 +5,7 @@ const idasenController = require('idasen-controller');
 
 const indexRouter = require('./routes/index');
 
-const deskEngine = idasenController.deskManager;
+const {deskManager} = idasenController;
 
 const app = express();
 
@@ -16,11 +16,8 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 
-deskEngine.init();
-
 process.on('SIGINT', async () => {
-  await deskEngine.disconnect(deskEngine.desk);
-
+  await deskManager.disconnectAsync(deskManager.desk);
   process.exit(0);
 });
 
