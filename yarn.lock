@@ -2122,10 +2122,10 @@ iconv-lite@0.4.24, iconv-lite@^0.4.4:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-idasen-controller@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/idasen-controller/-/idasen-controller-1.0.3.tgz#63ad61c8b9993bed3a944a586330db61a0401dc1"
-  integrity sha512-fKxp45r1njyLp6uj2E1G/NMNP9B9FYjsiju5A7PilmklsfLTOWxalQB2ExmXvuwlIqSbijMaFOEAAzt+SfUkLA==
+idasen-controller@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/idasen-controller/-/idasen-controller-1.1.0.tgz#0129f427b9a3e9d247c7bf09d26eba62f53a310e"
+  integrity sha512-1vzTwT2Y4QZm+4klLPVVdv/zbrxzAp2X7kh9pTL/paaQZfOc2mFXbMo4t4Dyutd6dYI4asxy1IyVhd/TR9umGg==
   dependencies:
     "@abandonware/noble" abandonware/noble
 
