@@ -54,7 +54,7 @@ const scheduler = async () => {
       console.log('started main timeout');
       await deskManager.desk.moveToAsync(118);
       setInterval(async () => {
-        if(isInTimeBound(new Date().getHours())){
+        if(isInTimeBound(new Date())){
           console.log('moving up');
           await deskManager.desk.moveToAsync(118);
         }
@@ -63,7 +63,7 @@ const scheduler = async () => {
         console.log('started sit timeout');
         await deskManager.desk.moveToAsync(75);
         setInterval(async ()=>{
-          if(isInTimeBound(new Date().getHours())){
+          if(isInTimeBound(new Date())){
             console.log('moving down');
             await deskManager.desk.moveToAsync(75);
           }

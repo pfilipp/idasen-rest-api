@@ -7,6 +7,7 @@ const deskManager = idasenController.deskManager;
 
 const SIT = 75;
 const STAND = 118;
+const LOWEST = 62;
 
 router.get('/', function(req, res, next) {
   res.json(welcome);
@@ -48,6 +49,11 @@ router.post('/sit', async (req, res, next) => {
 
 router.post('/stand', async (req, res, next) => {
   await deskManager.desk.moveToAsync(STAND);
+  res.send();
+});
+
+router.post('/lowest', async (req, res, next) => {
+  await deskManager.desk.moveToAsync(LOWEST);
   res.send();
 });
 
