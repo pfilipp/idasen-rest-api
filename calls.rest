@@ -1,0 +1,67 @@
+GET http://localhost:3001/scan
+
+###
+
+POST http://localhost:3001/connect
+content-type: application/json
+
+{
+  "address": "d7-7d-b6-27-6e-f0"
+}
+
+###
+
+POST http://localhost:3001/disconnect
+content-type: application/json
+
+###
+
+GET http://localhost:3001/
+
+###
+
+POST http://localhost:3001/up
+
+###
+
+POST http://localhost:3001/lowest
+
+###
+
+POST http://localhost:3001/down
+
+###
+
+GET http://localhost:3001/height
+
+###
+
+GET http://localhost:3001/state
+
+###
+
+GET http://localhost:3001/isstanding
+
+###
+
+POST http://localhost:3001/to
+content-type: application/json
+
+{
+  "height": 62
+}
+
+###
+
+POST http://localhost:3001/sit
+content-type: application/json
+
+###
+
+POST http://localhost:3001/stand
+content-type: application/json
+
+###
+
+POST http://localhost:3001/stop
+content-type: application/json
