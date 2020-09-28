@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/scan', async (req, res, next) => {
-  const discoveredPeripherals = await deskManager.scanAsync();
+  const discoveredPeripherals = await deskManager.getAvailableDevices();
   res.json(discoveredPeripherals);
 });
 
@@ -29,31 +29,31 @@ router.post('/disconnect', async (req, res, next) =>{
 });
 
 router.post('/up', async (req, res, next) =>{
-  await deskManager.desk.moveUpAsync();
+  await deskManager.deskController.moveUpAsync();
 });
 
 router.post('/down', async (req, res, next) => {
-  await deskManager.desk.moveDownAsync();
+  await deskManager.deskController.moveDownAsync();
 });
 
 router.post('/to', async (req, res, next) => {
   console.log(req.body.height);
-  await deskManager.desk.moveToAsync(req.body.height);
+  await deskManager.deskController.moveToAsync(req.body.height);
   res.send();
 });
 
 router.post('/sit', async (req, res, next) => {
-  await deskManager.desk.moveToAsync(SIT);
+  await deskManager.deskController.moveToAsync(SIT);
   res.send();
 });
 
 router.post('/stand', async (req, res, next) => {
-  await deskManager.desk.moveToAsync(STAND);
+  await deskManager.deskController.moveToAsync(STAND);
   res.send();
 });
 
 router.post('/lowest', async (req, res, next) => {
-  await deskManager.desk.moveToAsync(LOWEST);
+  await deskManager.deskController.moveToAsync(LOWEST);
   res.send();
 });
 
@@ -86,7 +86,7 @@ router.get('/isstanding', async (req, res, next) => {
 
 router.post('/stop', async (req, res, next) => {
   console.log('in stop');
-  await deskManager.desk.stopAsync();
+  await deskManager.deskController.stopAsync();
   res.send();
 });
 

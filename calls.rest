@@ -24,11 +24,11 @@ POST http://localhost:3001/up
 
 ###
 
-POST http://localhost:3001/lowest
+POST http://localhost:3001/down
 
 ###
 
-POST http://localhost:3001/down
+POST http://localhost:3001/lowest
 
 ###
 
@@ -48,7 +48,7 @@ POST http://localhost:3001/to
 content-type: application/json
 
 {
-  "height": 62
+  "height": 75
 }
 
 ###
