@@ -1,6 +1,6 @@
 const {wait, scheduleRepeatableAction} = require("./schedulable-actions");
 
-const dev = true;
+const dev = false;
 
 const START_TIME = 8;
 const END_TIME = 22;
@@ -8,8 +8,11 @@ const ONE_SECOND = 1000;
 const ONE_MINUTE = 60 * ONE_SECOND;
 const ONE_HOUR = 60 * ONE_MINUTE;
 
-const STANDING_TIME = dev ? 10 * ONE_SECOND : 10 * ONE_MINUTE;
-const BASE_INTERVAL_TIME = dev ? 30 * ONE_SECOND : ONE_HOUR;
+const STANDING_TIME = dev ? 30 * ONE_SECOND : 10 * ONE_MINUTE;
+const BASE_INTERVAL_TIME = dev ? 60 * ONE_SECOND : ONE_HOUR;
+
+const STAND_HEIGHT = 118;
+const SIT_HEIGHT = 75;
 
 class Scheduler{
   constructor(deskManager){
@@ -27,14 +30,13 @@ class Scheduler{
   moveToSitWithCheck = async () => {
     console.log('calling moveToSitWithCheck');
     if(this.isInTimeBound(new Date())){
-      await this.deskManager.deskController.moveToAsync(75);
+      return await this.deskManager.deskController.moveToAsync(SIT_HEIGHT);
     }
-    return;
   }
 
   moveToStandWithCheck = async () => {
     if(this.isInTimeBound(new Date())){
-      await this.deskManager.deskController.moveToAsync(118);
+      return await this.deskManager.deskController.moveToAsync(STAND_HEIGHT);
     }
     return;
   }
@@ -63,22 +65,6 @@ class Scheduler{
       moveToSitIntervalId, 
       moveToStandIntervalId 
     };
-
-    // const moveUpIntervalId = setInterval(async () => {
-    //   if(isInTimeBound(new Date())){
-    //     await deskManager.deskController.moveToAsync(118);
-    //   }
-    // }, ONE_HOUR);
-    // setTimeout(async ()=>{
-    //   console.log('started sit timeout');
-    //   await deskManager.deskController.moveToAsync(75);
-    //   setInterval(async ()=>{
-    //     if(isInTimeBound(new Date())){
-    //       console.log('moving down');
-    //       await deskManager.deskController.moveToAsync(75);
-    //     }
-    //   }, ONE_HOUR);
-    // }, 15 * ONE_MINUTE);
   }
   
   getNextFullHour = (now) => {

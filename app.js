@@ -24,10 +24,10 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 
-// const scheduler = new Scheduler(deskManager);
+const scheduler = new Scheduler(deskManager);
 
-// const ids = scheduler.startSchedule();
-// console.log(ids);
+const ids = scheduler.startSchedule();
+console.log(ids);
 
 process.on('SIGINT', async () => {
   await deskManager.disconnectAsync(deskManager.desk);
