@@ -11,12 +11,20 @@ const ONE_HOUR = 60 * ONE_MINUTE;
 const STANDING_TIME = dev ? 30 * ONE_SECOND : 10 * ONE_MINUTE;
 const BASE_INTERVAL_TIME = dev ? 60 * ONE_SECOND : ONE_HOUR;
 
-const STAND_HEIGHT = 118;
-const SIT_HEIGHT = 75;
+const STAND_HEIGHT = 120;
+const SIT_HEIGHT = 78;
 
 class Scheduler{
   constructor(deskManager){
     this.deskManager = deskManager;
+    this.currentStandingIntervalId = null;
+    this.currentSittingIntervalId = null;
+  }
+
+  restartSchedule = () => {
+    clearInterval(this.currentSittingIntervalId);
+    clearInterval(this.currentStandingIntervalId);
+    this.startSchedule();
   }
 
   isInTimeBound = (time) => {
@@ -52,6 +60,8 @@ class Scheduler{
     console.log('started main timeout');
     await this.moveToStandWithCheck();
     const moveToStandIntervalId = scheduleRepeatableAction(BASE_INTERVAL_TIME, this.moveToStandWithCheck);
+    console.log(moveToStandIntervalId);
+    this.currentStandingIntervalId = moveToStandIntervalId;
 
     console.log('waiting for as long as should stand');
     console.log(STANDING_TIME);
@@ -60,6 +70,8 @@ class Scheduler{
     console.log('started sit timeout');
     await this.moveToSitWithCheck();
     const moveToSitIntervalId = scheduleRepeatableAction(BASE_INTERVAL_TIME, this.moveToSitWithCheck);
+    console.log(moveToSitIntervalId);
+    this.currentSittingIntervalId = moveToSitIntervalId;
 
     return { 
       moveToSitIntervalId, 
@@ -75,4 +87,4 @@ class Scheduler{
 
 };
 
-module.exports = {Scheduler};
+module.exports = { Scheduler };

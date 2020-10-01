@@ -5,8 +5,8 @@ var router = express.Router();
 
 const deskManager = idasenController.deskManager;
 
-const SIT = 75;
-const STAND = 118;
+const SIT = 78;
+const STAND = 120;
 const LOWEST = 62;
 
 router.get('/', function(req, res, next) {
