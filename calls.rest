@@ -1,0 +1,84 @@
+GET http://192.168.1.199:3001/scan
+
+###
+
+GET http://localhost:3001/scan
+
+###
+
+POST http://localhost:3001/connect
+content-type: application/json
+
+{
+  "address": "d7-7d-b6-27-6e-f0"
+}
+
+###
+
+POST http://192.168.1.199:3001/connect
+content-type: application/json
+
+{
+  "address": "d7:7d:b6:27:6e:f0"
+}
+
+###
+
+POST http://192.168.1.199:3001/up
+
+###
+
+POST http://localhost:3001/disconnect
+content-type: application/json
+
+###
+
+GET http://localhost:3001/
+
+###
+
+POST http://localhost:3001/move/up
+
+###
+
+POST http://localhost:3001/move/down
+
+###
+
+POST http://localhost:3001/lowest
+
+###
+
+GET http://localhost:3001/height
+
+###
+
+GET http://localhost:3001/state
+
+###
+
+GET http://localhost:3001/isstanding
+
+###
+
+POST http://localhost:3001/move/to
+content-type: application/json
+
+{
+  "height": 120
+}
+
+###
+
+POST http://localhost:3001/sit
+content-type: application/json
+
+###
+
+POST http://localhost:3001/stand
+content-type: application/json
+
+###
+
+POST http://localhost:3001/stop
+content-type: application/json
