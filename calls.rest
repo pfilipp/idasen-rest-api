@@ -1,3 +1,7 @@
+GET http://192.168.1.199:3001/scan
+
+###
+
 GET http://localhost:3001/scan
 
 ###
@@ -8,6 +12,19 @@ content-type: application/json
 {
   "address": "d7-7d-b6-27-6e-f0"
 }
+
+###
+
+POST http://192.168.1.199:3001/connect
+content-type: application/json
+
+{
+  "address": "d7:7d:b6:27:6e:f0"
+}
+
+###
+
+POST http://192.168.1.199:3001/up
 
 ###
 
