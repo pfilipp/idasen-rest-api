@@ -37,11 +37,11 @@ GET http://localhost:3001/
 
 ###
 
-POST http://localhost:3001/up
+POST http://localhost:3001/move/up
 
 ###
 
-POST http://localhost:3001/down
+POST http://localhost:3001/move/down
 
 ###
 

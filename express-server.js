@@ -1,7 +1,9 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-import {routerWrapper} from './routes/index.js';
+import {rootRouterWrapped} from './routes/root-router.js';
+import {moveRouterWrapped} from './routes/move-router.js';
+import {positionRouterWrapped} from './routes/position-router.js';
 
 export const app = express();
 
@@ -19,7 +21,9 @@ class ExpressServer{
     // this.app.use(myLogger);
     this.app.use(cookieParser());
     
-    this.app.use('/', routerWrapper.router);
+    this.app.use('/', rootRouterWrapped.router);
+    this.app.use('/move', moveRouterWrapped.router);
+    this.app.use('/position', positionRouterWrapped.router);
   }
 }
 
