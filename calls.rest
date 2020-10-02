@@ -61,11 +61,11 @@ GET http://localhost:3001/isstanding
 
 ###
 
-POST http://localhost:3001/to
+POST http://localhost:3001/move/to
 content-type: application/json
 
 {
-  "height": 75
+  "height": 120
 }
 
 ###

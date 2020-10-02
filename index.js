@@ -1,5 +1,8 @@
 import {expressServer} from './express-server.js';
 import {RestServer} from './rest-server.js';
+import idasenController from 'idasen-controller';
+
+const {deskManager} = idasenController;
 
 const restServer = new RestServer(process.env.PORT || '3001', expressServer);
 
