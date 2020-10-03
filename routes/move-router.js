@@ -25,12 +25,12 @@ class MoveRouterWrapped {
 
   handleUpRequest = async (request, response, next) =>{
     await deskManager.deskController.moveUpAsync();
-    response.sendCode(200);
+    response.send();
   }
 
   handleDownRequest = async (request, response, next) => {
     await deskManager.deskController.moveDownAsync();
-    response.sendCode(200);
+    response.send();
   }
 
   handleMoveToRequest = async (request, response, next) => {
