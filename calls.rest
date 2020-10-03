@@ -70,7 +70,7 @@ content-type: application/json
 
 ###
 
-POST http://localhost:3001/sit
+POST http://localhost:3001/position/sit
 content-type: application/json
 
 ###

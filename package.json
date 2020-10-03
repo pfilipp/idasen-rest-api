@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node --experimental-json-modules ./bin/www",
+    "start": "node --experimental-json-modules index.js",
     "test": "jest --watch"
   },
   "type": "module",
@@ -11,7 +11,7 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "idasen-controller": "1.1.0",
+    "idasen-controller": "1.2.0",
     "morgan": "~1.9.1",
     "superagent": "^6.1.0"
   },
