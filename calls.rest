@@ -15,6 +15,20 @@ content-type: application/json
 
 ###
 
+POST http://localhost:3001/set/defaultdesk
+content-type: application/json
+
+{
+  "address": "d7-7d-b6-27-6e-f0"
+}
+
+###
+
+POST http://localhost:3001/set/savesettings
+content-type: application/json
+
+###
+
 POST http://192.168.1.155:3001/connect
 content-type: application/json
 

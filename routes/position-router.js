@@ -1,12 +1,10 @@
 import express from 'express';
 import idasenController from 'idasen-controller';
+import {storeKeys} from '../store-keys.js';
+import {store} from '../store.js';
+
 const router = express.Router();
-
 const deskManager = idasenController.deskManager;
-
-const SIT = 78;
-const STAND = 120;
-const LOWEST = 62;
 
 class PositionRouterWrapped {
   constructor(deskManager, router){
@@ -15,7 +13,6 @@ class PositionRouterWrapped {
 
     this.setRoutes();
   }
-
 
   setRoute = (httpType, path, callback) => {
     this.router[httpType](path, callback);
@@ -28,22 +25,25 @@ class PositionRouterWrapped {
     this.setRoute('get', '/isstanding', this.handleIsStandingRequest);
   }
 
-  handleSitRequest = async (request, response, next) => {
-    await deskManager.deskController.moveToAsync(SIT);
+  handleSitRequest = async (request, response) => {
+    const sitHeight = store.get(storeKeys.SIT_HEIGHT)
+    await deskManager.deskController.moveToAsync(sitHeight);
     response.send();
   }
 
-  handleStandRequest = async (request, response, next) => {
-    await deskManager.deskController.moveToAsync(STAND);
+  handleStandRequest = async (request, response) => {
+    const standHeight = store.get(storeKeys.STAND_HEIGHT)
+    await deskManager.deskController.moveToAsync(standHeight);
     response.send();
   }
 
-  handleLowestRequest = async (request, response, next) => {
-    await deskManager.deskController.moveToAsync(LOWEST);
+  handleLowestRequest = async (request, response) => {
+    const lowestHeight = store.get(storeKeys.LOWEST_HEIGHT)
+    await deskManager.deskController.moveToAsync(lowestHeight);
     response.send();
   }
 
-  handleIsStandingRequest = async (request, response, next) => {
+  handleIsStandingRequest = async (request, response) => {
     const height = await deskManager.desk.getCurrentHeightAsync();
     if (height === STAND){
       response.send(true);
