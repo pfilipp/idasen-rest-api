@@ -29,8 +29,10 @@ if(store.exists(storeKeys.DESK_ADDRESS)){
   console.log('trying to connect to pre-saved address');
   const address = store.get(storeKeys.DESK_ADDRESS);
   console.log(address);
-  const result = await deskManager.connectAsync(address);
-  console.log(result);
+  setTimeout(()=> {
+    const result = await deskManager.connectAsync(address);
+    console.log(result);
+  }, 2000)
 }
 
 restServer.start();
