@@ -1,6 +1,6 @@
 import express from 'express';
-import {store} from '../store.js';
-import {storeKeys} from '../store-keys.js';
+import {store} from '../store/store.js';
+import {storeKeys} from '../store/store-keys.js';
 
 const router = express.Router();
 

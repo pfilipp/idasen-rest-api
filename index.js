@@ -1,14 +1,12 @@
 import {expressServer} from './express-server.js';
 import {RestServer} from './rest-server.js';
 import idasenController from 'idasen-controller';
-import {store} from './store.js';
-import {storeKeys} from './store-keys.js';
+import {store} from './store/store.js';
+import {storeKeys} from './store/store-keys.js';
 
 const {deskManager, deskSettings} = idasenController;
 const deskStore = deskSettings.store;
 const deskStoreKeys = deskSettings.storeKeys;
-
-console.log(deskStore);
 
 const restServer = new RestServer(process.env.PORT || '3001', expressServer);
 

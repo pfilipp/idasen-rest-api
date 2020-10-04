@@ -1,7 +1,7 @@
 import express from 'express';
 import idasenController from 'idasen-controller';
-import {storeKeys} from '../store-keys.js';
-import {store} from '../store.js';
+import {storeKeys} from '../store/store-keys.js';
+import {store} from '../store/store.js';
 
 const router = express.Router();
 const deskManager = idasenController.deskManager;

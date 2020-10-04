@@ -101,3 +101,13 @@ content-type: application/json
 
 POST http://localhost:3001/stop
 content-type: application/json
+
+###
+
+POST http://localhost:3002/start
+content-type: application/json
+
+###
+
+POST http://localhost:3002/stop
+content-type: application/json
