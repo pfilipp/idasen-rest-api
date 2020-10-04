@@ -13,7 +13,7 @@
   optionalDependencies:
     usb "^1.6.2"
 
-"@abandonware/noble@github:abandonware/noble":
+"@abandonware/noble@abandonware/noble":
   version "1.9.2-10"
   resolved "https://codeload.github.com/abandonware/noble/tar.gz/d8bf3061e3abd162dc6cb95d5335ebfdd89350e5"
   dependencies:
@@ -2146,10 +2146,10 @@ iconv-lite@0.4.24, iconv-lite@^0.4.4:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-idasen-controller@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/idasen-controller/-/idasen-controller-1.2.0.tgz#a7bccb890b2ffe2d373a200b5af405dbc36b87ce"
-  integrity sha512-/wTWO4zjovYsiO1N/Y6VsICmLpc20dZJzV/Gq68XDf5o8kdXJQI+R7lsshAfIhUEYKfcJzQ9kQQu96RAcLeuIQ==
+idasen-controller@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/idasen-controller/-/idasen-controller-1.3.0.tgz#4de6945a4f858f0d11f79cd0e00487745f598f32"
+  integrity sha512-17QHlC6NaNiXYC6nBd3ce1JlX/5Og6tnrPfMKBZU+lNvDbVa7S3BhFbJ7oLYHN5U+ASXWYcao3gPu3+ecDEaRw==
   dependencies:
     "@abandonware/noble" abandonware/noble
 

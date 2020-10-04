@@ -32,27 +32,27 @@ class RootRouterWrapped {
 
   handleRootRequest = (request, response) => response.json(welcome);
 
-  handleScanRequest = async (request, response, next) => {
+  handleScanRequest = async (request, response) => {
     const discoveredPeripherals = await deskManager.getAvailableDevices();
     response.json(discoveredPeripherals);
   }
 
-  handleConnectRequest = async (request, response, next) =>{
+  handleConnectRequest = async (request, response) =>{
     const result = await deskManager.connectAsync(request.body.address);
     response.json(result);
   }
   
-  handleDisconnectRequest = async (request, response, next) =>{
+  handleDisconnectRequest = async (request, response) =>{
     const result = await deskManager.disconnectAsync();
     response.json(result);
   }
 
-  handleHeightRequest = async (request, response, next) => {
+  handleHeightRequest = async (request, response) => {
     const height = await deskManager.desk.getCurrentHeightAsync();
     response.json({height});
   }
 
-  handleStateRequest = async (request, response, next) => {
+  handleStateRequest = async (request, response) => {
     const height = await deskManager.desk.getCurrentHeightAsync();
     if (height === SIT){
       response.json({sit: true});

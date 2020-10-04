@@ -23,23 +23,23 @@ class MoveRouterWrapped {
     this.setRoute('post', '/stop', this.handleStopRequest);
   }
 
-  handleUpRequest = async (request, response, next) =>{
+  handleUpRequest = async (request, response) =>{
     await deskManager.deskController.moveUpAsync();
     response.send();
   }
 
-  handleDownRequest = async (request, response, next) => {
+  handleDownRequest = async (request, response) => {
     await deskManager.deskController.moveDownAsync();
     response.send();
   }
 
-  handleMoveToRequest = async (request, response, next) => {
+  handleMoveToRequest = async (request, response) => {
     console.log(request.body.height);
     await deskManager.deskController.moveToAsync(request.body.height);
     response.send();
   }
 
-  handleStopRequest = async (request, response, next) => {
+  handleStopRequest = async (request, response) => {
     console.log('in stop');
     await deskManager.deskController.stopAsync();
     response.send();

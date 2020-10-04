@@ -12,7 +12,6 @@ class Store {
     const jsonStore = await fs.readFile(STORE_FILE);
     const parsedStore = JSON.parse(jsonStore);
     const mergedStore = {...this._store, ...parsedStore};
-    console.log(mergedStore);
     this._store = mergedStore;
   }
 

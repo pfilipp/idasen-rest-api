@@ -19,6 +19,7 @@ class SetRouterWrapped {
     this.setRoute('post', '/defaultdesk', this.handleDefaultDesk);
 
     this.setRoute('post', '/savesettings', this.handleSaveSettings);
+    this.setRoute('post', '/clearsettings', this.handleClearSettings);
 
     this.setRoute('post', '/sitheight', this.handleSitHeightRequest);
     this.setRoute('post', '/standheight', this.handleStandHeightRequest);
@@ -37,6 +38,11 @@ class SetRouterWrapped {
   handleSaveSettings = async (request, response) => {
     await store.save();
     response.send();
+  }
+
+  handleClearSettings = (request, response) => {
+    store.clear();
+    response.send('To clear settings permanently use /savesettings');
   }
 
   handleSitHeightRequest = async (request, response) => {
