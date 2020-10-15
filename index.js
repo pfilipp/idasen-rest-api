@@ -11,7 +11,7 @@ const deskStoreKeys = deskSettings.storeKeys;
 const restServer = new RestServer(process.env.PORT || '3001', expressServer);
 
 const setDefaultValues = () => {
-  store.add(storeKeys.SIT_HEIGHT, 78);
+  store.add(storeKeys.SIT_HEIGHT, 79);
   store.add(storeKeys.STAND_HEIGHT, 120);
   store.add(storeKeys.LOWEST_HEIGHT, 62);
   store.add(storeKeys.DESK_OFFSET_HEIGHT, 62);

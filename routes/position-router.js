@@ -27,20 +27,20 @@ class PositionRouterWrapped {
 
   handleSitRequest = async (request, response) => {
     const sitHeight = store.get(storeKeys.SIT_HEIGHT)
-    await deskManager.deskController.moveToAsync(sitHeight);
-    response.send();
+    deskManager.deskController.moveToAsync(sitHeight);
+    response.sendStatus(202);
   }
 
   handleStandRequest = async (request, response) => {
     const standHeight = store.get(storeKeys.STAND_HEIGHT)
-    await deskManager.deskController.moveToAsync(standHeight);
-    response.send();
+    deskManager.deskController.moveToAsync(standHeight);
+    response.sendStatus(202);
   }
 
   handleLowestRequest = async (request, response) => {
     const lowestHeight = store.get(storeKeys.LOWEST_HEIGHT)
-    await deskManager.deskController.moveToAsync(lowestHeight);
-    response.send();
+    deskManager.deskController.moveToAsync(lowestHeight);
+    response.sendStatus(202);
   }
 
   handleIsStandingRequest = async (request, response) => {
