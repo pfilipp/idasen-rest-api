@@ -1,9 +1,9 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-import {rootRouterWrapped} from './routes/root-router.js';
-import {moveRouterWrapped} from './routes/move-router.js';
-import {positionRouterWrapped} from './routes/position-router.js';
+import {rootRouterWrapped} from '../routes/root-router.js';
+import {moveRouterWrapped} from '../routes/move-router.js';
+import {positionRouterWrapped} from '../routes/position-router.js';
 
 export const app = express();
 

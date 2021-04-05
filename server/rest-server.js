@@ -1,4 +1,4 @@
-import {normalizePort} from './helpers.js';
+import {normalizePort} from '../helpers.js';
 import debugModule from 'debug';
 import http from 'http';
 
